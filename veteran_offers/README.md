@@ -7,7 +7,7 @@ In this directory, you'll find the files you need to be able to package up your 
 
 ## Installation
 
-Clone https://github.com/joselycas/cli-data-gem-assessment-v-000.git to your machine to get this running.
+Clone https://github.com/joselycas/cli-data-gem-assessment-v-000.git to your machine to get the program running.
 
 ## Usage
 bundle install
