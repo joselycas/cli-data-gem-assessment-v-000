@@ -3,7 +3,6 @@
 class VeteranOffers::CLI
     def call
       VeteranOffers::Scraper.scrape_vawebsite
-      @deals = VeteranOffers::Offer.all
       list_deals
       menu
       goodbye
@@ -11,7 +10,7 @@ class VeteranOffers::CLI
 
     def list_deals
       puts "Veteran Deals:"
-      @deals.each.with_index(1) do |offer,i|
+      VeteranOffers::Offer.all.each.with_index(1) do |offer,i|
         puts "#{i}. #{offer.details} "
       end
     end
@@ -21,8 +20,8 @@ class VeteranOffers::CLI
       while input != "exit"
         puts "Please enter the deal you would like more info on 1-24, type list for all deals or exit."
         input = gets.strip.downcase
-        if input.to_i > 0 && input.to_i <= @deals.length
-          deal = @deals[input.to_i-1]
+        if input.to_i > 0 && input.to_i <= VeteranOffers::Offer.all.length
+          deal = VeteranOffers::Offer.all[input.to_i-1]
           puts "#{deal.details}"
           puts "#{deal.discount_type}"
           puts "#{deal.link}"
