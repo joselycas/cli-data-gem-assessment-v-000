@@ -6,6 +6,7 @@ class VeteranOffers::Scraper
       offer = VeteranOffers::Offer.new
       offer.details = discount.css(".description p").text.gsub("\n", "")
       offer.discount_type = discount.css(".discount-type").text.gsub("\n", "")
+      binding.pry
       offer.link = discount.attr("href")
     end
   end
